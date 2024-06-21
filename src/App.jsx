@@ -8,7 +8,7 @@ function App() {
     <div>
       {/* <LuckyN checkWinner={lessThan4} title="Less than 4 you win" />
       <LuckyN checkWinner={allSameValue} title="All same value you win" /> */}
-      Practice Passing State Updating
+      {/* Practice Passing State Updating */}
       <BoxGrid />
     </div>
   );
