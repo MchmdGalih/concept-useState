@@ -1,20 +1,22 @@
 import { useState } from "react";
 import "./Lucky.css";
-import { getRolls, getSum } from "../../utils/helper";
+import { getRolls } from "../../utils/helper";
 import Dice from "../Dice/Dice";
+import Button from "../Button/Button";
 
-export default function LuckyN({ numDice = 2, goal = 7 }) {
+export default function LuckyN({ numDice = 2, checkWinner, title }) {
   const [dice, setDice] = useState(getRolls(numDice));
-  const isWinner = getSum(dice) === goal;
+  const isWinner = checkWinner(dice);
 
   const rolls = () => setDice(getRolls(numDice));
   return (
     <main className="LuckyN">
       <h1>
-        Lucky{goal} {isWinner && "YOU WINNNN!"}
+        Lucky {title} {isWinner && <p>YOU WINNNN!</p>}
       </h1>
       <Dice dice={dice} />
-      <button onClick={rolls}>Re-Roll</button>
+      {/* <button onClick={rolls}>Re-Roll</button> */}
+      <Button clickFunc={rolls} />
     </main>
   );
 }
